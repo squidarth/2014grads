@@ -1,0 +1,259 @@
+<head>
+  <title>postgrad</title>
+</head>
+
+<body>
+</body>
+
+<template name="home">
+  <div class="container">
+    <div class="page-header">
+      <h1>Columbia 2014: Where are you going after graduation?</h1>
+    </div>
+
+    {{> hello}}
+  </div>
+</template>
+
+<template name="profile">
+  <p>{{name}}</p>
+  <p>{{destination}}</p>
+</template>
+
+<template name="login_modal">
+
+  <div class="modal fade login-modal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+          <h4 class="modal-title" id="myLargeModalLabel">Log in to edit your info</h4>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="row">
+            <form class="login-form">
+              <div class="col-md-5"> 
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="jsb2134@columbia" />
+              </div>
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password"  placeholder="blitzkreigmonkey" />
+              </div>
+
+              <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
+
+<template name="edit_info_modal">
+
+  <div class="modal fade edit-info-modal">
+
+    <div class="modal-dialog modal-lg">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+          <h4 class="modal-title" id="myLargeModalLabel">Edit your info</h4>
+        </div>
+
+        <div class="modal-body">
+          <div class="row">
+            <form class="info-edit-form">
+              <div class="col-md-5">
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{user.profile.name}}" placeholder="Yoachim Haynes" />
+                  </div>
+                  <div class="form-group">
+                    <label for="destination">Destination</label>
+                    <input type="text" class="form-control" id="destination" name="destination" value="{{user.profile.destination}}" placeholder="The Polish Widget Company" />
+                  </div> 
+                  <div class="form-group">
+                    <label for="doing">Doing (Role)</label>
+                    <input type="text" class="form-control" name="doing" value="{{user.profile.doing}}" id="doing" placeholder="Housekeeping" />
+                  </div> 
+                  <div class="form-group">
+                    <label for="place">Location</label>
+                    <input type="text" class="form-control" name="place" value="{{user.profile.place}}" id="place" placeholder="Prague" />
+                  </div> 
+              </div>
+
+              <div class="col-md-5">
+                  <div class="form-group">
+                    <label for="starting">Starting</label>
+                    <input type="text" class="form-control" name="starting" value="{{user.profile.starting}}" id="starting" placeholder="August" />
+                  </div> 
+
+                  <div class="form-group">
+                    <label for="summer_plans">Summer Plans</label>
+                    <textarea type="text" class="form-control" name="summer_plans" id="summer_plans" placeholder="Roadtrippin'">{{user.profile.summer_plans}}</textarea>
+                  </div> 
+
+                  <div class="form-group">
+                    <label for="comments">Comments</label>
+                    <textarea type="text" class="form-control" name="comments"  id="comments" placeholder="SoCal folks hit me up!'">{{user.profile.comments}}</textarea>
+                  </div> 
+
+                  <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</template>
+
+<template name="hello">
+  {{> login_modal}}
+  {{> edit_info_modal}}
+  <div class="modal fade add-info-modal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+          <h4 class="modal-title" id="myLargeModalLabel">Add your info</h4>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="row">
+              <form class="info-add-form">
+                <div class="col-md-5">
+                  <p>We won't share your email with anyone but you need it to log in and edit your information</p> 
+                  <div class="form-group">
+                    <label for="emailInput">Email</label>
+                    <input type="email" class="form-control" name="email" id="emailInput" placeholder="jbs4234@columbia.edu" />
+                  </div> 
+
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="blueriverhomelexicon" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Yoachim Haynes" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="destination">Destination</label>
+                    <input type="text" class="form-control" id="destination" name="destination" placeholder="The Polish Widget Company" />
+                  </div> 
+                  <div class="form-group">
+                    <label for="doing">Doing (Role)</label>
+                    <input type="text" class="form-control" name="doing" id="doing" placeholder="Housekeeping" />
+                  </div> 
+                </div>
+
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <label for="place">Location</label>
+                    <input type="text" class="form-control" name="place" id="place" placeholder="Prague" />
+                  </div> 
+
+                  <div class="form-group">
+                    <label for="starting">Starting</label>
+                    <input type="text" class="form-control" name="starting" id="starting" placeholder="August" />
+                  </div> 
+
+                  <div class="form-group">
+                    <label for="summer_plans">Summer Plans</label>
+                    <textarea type="text" class="form-control" name="summer_plans" id="summer_plans" placeholder="Roadtrippin'"></textarea>
+                  </div> 
+
+                  <div class="form-group">
+                    <label for="comments">Comments</label>
+                    <textarea type="text" class="form-control" name="comments" id="comments" placeholder="SoCal folks hit me up!'"></textarea>
+                  </div> 
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      {{#if user}} 
+      <button class="btn btn-success" data-toggle="modal" data-target=".edit-info-modal">Edit Info</button>
+      {{else}}
+      <button class="btn btn-success" data-toggle="modal" data-target=".add-info-modal">Add Info</button>
+
+      <a href="#" data-toggle="modal" data-target=".login-modal">Edit info</a>
+      {{/if}}
+    </div>
+
+    <div class="col-md-2 pull-right">
+      <input type="text" placeholder="Search..." class="form-control search" />
+    </div>
+  </div>
+
+  {{> profiles}}
+
+  {{> page_nav}}
+  </template>
+
+  <template name="profiles">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Location</th> 
+              <th>Destination</th>
+              <th>Doing? (Role)</th>
+              <th>Starting</th>
+              <th>Summer Plans</th>
+              <th>Comments</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each users}}
+            <tr>
+             <td>{{profile.name}}</td>
+             <td>{{profile.place}}</td> 
+             <td>{{profile.destination}}</td>
+             <td>{{profile.doing}}</td> 
+             <td>{{profile.starting}}</td>
+             <td>{{profile.summer_plans}}</td>
+             <td>{{profile.comments}}</td>
+           </tr>
+              {{/each}} 
+          </tbody>
+        </table> 
+      </div>
+    </div>
+    </template>
+
+  <template name="page_nav">
+    <span>
+      {{#if showPrev}} 
+      <a href="#" class="nav-prev">
+        <span class="glyphicon glyphicon-arrow-left"></span> 
+      </a>
+      {{/if}}
+      {{#if showNext}}
+      <a href="#" class="nav-next">
+        <span class="glyphicon glyphicon-arrow-right"></span> 
+      </a>
+      {{/if}}
+    </span>
+  </template>
